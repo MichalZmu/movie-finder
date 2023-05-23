@@ -23,7 +23,7 @@ export class HomePageComponent {
 
   constructor(private movieService: MovieService, private router: Router) {}
 
-  async searchMovies(): Promise<void> {
+  searchMovies(): void {
     this.loading = true;
     this.movieService
       .searchMovies(
@@ -52,19 +52,19 @@ export class HomePageComponent {
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.searchMovies().then();
+      this.searchMovies();
     }
   }
 
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.searchMovies().then();
+      this.searchMovies();
     }
   }
 
   onSubmit(): void {
-    this.searchMovies().then();
+    this.searchMovies();
   }
 
   goToDetailsView(id: string): void {

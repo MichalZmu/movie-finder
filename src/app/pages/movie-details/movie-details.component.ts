@@ -27,7 +27,7 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
-  getMovieDetails(movieId: string) {
+  getMovieDetails(movieId: string): void {
     this.movieService.getMovieDetails(movieId).subscribe({
       next: (data) => {
         this.movieDetails = data;
@@ -37,7 +37,7 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
-  updateRecentlyViewed() {
+  updateRecentlyViewed(): void {
     const storedRecentlyViewed = localStorage.getItem('recentlyViewed');
     if (storedRecentlyViewed) {
       this.recentlyViewed = JSON.parse(storedRecentlyViewed);
